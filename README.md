@@ -1,36 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-  <h1>Invoice Extractor using Google Gemini API</h1>
-  <div class="intro">
-    <p>This project utilizes the Google Gemini API to extract information from invoices.</p>
-    <p>Features:</p>
-    <ul>
-      <li>Invoice parsing and data extraction</li>
-      <li>Integration with Google Cloud's Gemini API</li>
-      <!-- Add more features here -->
-    </ul>
-  </div>
-
-  <h2>Getting Started</h2>
-  <p>To get started with this project, follow these steps:</p>
-  <div class="code">
-    <pre>
-      <code>
-        git clone https://github.com/Codex-Addy/invoice-extractor.git
-        cd invoice-extractor
-        npm install
-      </code>
-    </pre>
-  </div>
 
 
-  
+ ## Gemini Image Demo
+
+This is a Streamlit app that demonstrates how to use the Gemini-Pro-Vision model from Google's Generative AI platform to extract information from images. The app allows users to upload an image and provide a text prompt, and then generates a response based on the image and text input.
 
 
-</body>
-</html>
+#### 1. Import the necessary libraries
+- `google.generativeai` is the library that provides access to the Gemini-Pro-Vision model.
+- `PIL` is the Python Imaging Library, which is used to load and process images.
+- `textwrap` is used to wrap text to a specified width.
+- `pathlib` is used to work with file paths.
+- `os` is used to access the environment variables.
+- `streamlit` is used to create the Streamlit app.
+- `dotenv` is used to load environment variables from a `.env` file.
+
+#### 3. Define the `get_gemini_response` function
+
+```python
+def get_gemini_response(input, image, prompt):
+    model = genai.GenerativeModel('gemini-pro-vision')
+    response = model.generate_content([input, image[0], prompt])
+    return response.text
+```
+
+The `get_gemini_response` function takes three arguments:
+
+- `input`: The text prompt that the user provides.
+- `image`: The image that the user uploads.
+- `prompt`: The prompt that is used to generate the response.
+
+The function first creates a `GenerativeModel` object for the Gemini-Pro-Vision model. Then, it calls the `generate_content` method
+
+
