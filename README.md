@@ -1,6 +1,6 @@
 
 
- ## Gemini Image Demo
+ # Image's Invoice Using Gemini 
 
 This is a Streamlit app that demonstrates how to use the Gemini-Pro-Vision model from Google's Generative AI platform to extract information from images. The app allows users to upload an image and provide a text prompt, and then generates a response based on the image and text input.
 
