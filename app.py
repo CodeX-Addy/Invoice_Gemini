@@ -47,8 +47,7 @@ if uploaded_file is not None:
 submit = st.button("Tell me about the image")
 
 input_prompt = """
-               You are supposed to give answers based on image and text input
-               
+               You are supposed to give answers based on the given image and text input   
                """
 # If ask button is clicked
 if submit:
