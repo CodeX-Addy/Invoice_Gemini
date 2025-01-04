@@ -1,15 +1,14 @@
-import google.generativeai as genai
-from PIL import Image
-import textwrap
-import pathlib
 import os
+import pathlib
+import textwrap
+from PIL import Image
 import streamlit as st
 from dotenv import load_dotenv
+import google.generativeai as genai
 
 load_dotenv()  # Loading environment variable
 os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
-
 
 def get_gemini_response(input, image, prompt):
     model = genai.GenerativeModel('gemini-pro-vision')
@@ -32,10 +31,8 @@ def input_image_setup(uploaded_file):
     else:
         raise FileNotFoundError("No file uploaded")
 
-
-
-
-st.set_page_config(page_title="Gemini Image Demo") ##Streamlit app
+## ##Streamlit app
+st.set_page_config(page_title="Gemini Image Demo") 
 
 st.header("Image invoice extractor")
 input = st.text_input("Input Prompt: ", key="input")
@@ -50,12 +47,10 @@ if uploaded_file is not None:
 submit = st.button("Tell me about the image")
 
 input_prompt = """
-               You have to give answers based on image and text input
+               You are supposed to give answers based on image and text input
                
                """
-
 # If ask button is clicked
-
 if submit:
     image_data = input_image_setup(uploaded_file)
     response = get_gemini_response(input_prompt, image_data, input)
